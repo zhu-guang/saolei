@@ -9,7 +9,7 @@ int caozuo[110][110];
 int x,y,win;
 int n;
 
-//ÓÃÀ´ÊµÐÐÃ¿Ò»²½É¨À×¹ý³Ì 
+
 void shuchu()
 {
 	cout<<endl;
@@ -26,7 +26,7 @@ void shuchu()
 		for(int j=1;j<=y;j++)
 		{
 			if(caozuo[i][j]==0)
-		    printf("¨€"); 
+		    printf("â–ˆ"); 
 		    else if(caozuo[i][j]>=1&&caozuo[i][j]<=8)
 		    cout<<caozuo[i][j]<<" ";
 		    else if(caozuo[i][j]==-2)
@@ -39,7 +39,7 @@ void shuchu()
 }
 
 
-//DFSÉî¶ÈÓÅÏÈËÑË÷ ÓÃÀ´ÊµÏÖ½«¿Õ¸ñµÄ²¿·Ö¼°ÆäÖÜÎ§Í¬Ê±¿ª³ö 
+//DFSæ·±åº¦ä¼˜å…ˆæœç´¢ ç”¨æ¥å®žçŽ°å°†ç©ºæ ¼çš„éƒ¨åˆ†åŠå…¶å‘¨å›´åŒæ—¶å¼€å‡º 
 void dfs (int xx,int yy)
 {
 	if (saolei[xx-1][yy]==0 && caozuo[xx-1][yy]!=-2 && xx-1>=1) 
@@ -83,7 +83,7 @@ int main()
 			{
 			 	if(saolei[i][j]==0)
 			 	{
-			 		if(saolei[i-1][j-1]==-1)  saolei[i][j]++;   /*ÂñÀ×*/ 
+			 		if(saolei[i-1][j-1]==-1)  saolei[i][j]++;   /*åŸ‹é›·*/ 
 			 		if(saolei[i-1][j]==-1)    saolei[i][j]++;
 			 		if(saolei[i-1][j+1]==-1)  saolei[i][j]++;
 			 		if(saolei[i][j-1]==-1)    saolei[i][j]++;
@@ -108,7 +108,7 @@ int main()
 		
 		shuchu();
 		cout<<endl;
-		cout<<"ÇëÊäÈëÒª²Ù×÷µÄ×ø±ê(x,y)";
+		cout<<"è¯·è¾“å…¥è¦æ“ä½œçš„åæ ‡(x,y)";
 		int xx,yy;
 		cin>>xx>>yy;
 		
@@ -130,9 +130,9 @@ int main()
 		
 		shuchu();
 		if (biaoji==1)
-		cout<<"ÄãÓ®ÁË";
+		cout<<"ä½ èµ¢äº†";
 		else if (biaoji==-1)
-		cout<<"ÄãÊäÁË"; 
+		cout<<"ä½ è¾“äº†"; 
 }
 
 
