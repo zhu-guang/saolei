@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<math.h> 
 #include<iostream>
-#include<cstdlib>
+#include<stdlib.h>
 #include<time.h>
 using namespace std;
 int saolei[110][110];
@@ -26,7 +26,7 @@ void shuchu()
 		for(int j=1;j<=y;j++)
 		{
 			if(caozuo[i][j]==0)
-		    printf("█"); 
+		    printf("█ "); 
 		    else if(caozuo[i][j]>=1&&caozuo[i][j]<=8)
 		    cout<<caozuo[i][j]<<" ";
 		    else if(caozuo[i][j]==-2)
@@ -57,8 +57,9 @@ void dfs (int xx,int yy)
 
 int main()
 {
-	
+	printf("输入你想挑战的格数（行列x,y）以及雷的格数n:");
 	scanf("%d%d%d",&x,&y,&n);
+	printf("游戏开始！");
 	win=x*y-n;
 	double geshu=x*y;
 	geshu=100.0*n/geshu;
@@ -134,5 +135,3 @@ int main()
 		else if (biaoji==-1)
 		cout<<"你输了"; 
 }
-
-
