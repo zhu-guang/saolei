@@ -1,0 +1,66 @@
+#include<stdio.h>
+#include<math.h>
+#include<time.h>
+#include<stdlib.h>
+int zuobiao[10086][10086];
+int caozuo[10086][10086];
+int i,j,x,y,xx,yy,n,geshu,win;
+double geshugl;
+
+int main()
+{
+	
+	printf("请输入你需要雷阵的大小（x(竖),y（横）），以及要埋的雷个数n(x,y,n)：");
+	scanf("%d%d%d",&x,&y,&n);  /* 输入格数（纵横长度x，y）以及要埋雷（n）的个数*/
+	printf("游戏开始！");
+	geshu=x*y;
+	win=x*y-n;                       //通过点开没有雷的格数来判定最后胜利
+	geshugl=100.0*n/geshu;
+	srand((unsigned int)time(0));
+	while(n!=0)                      //随机埋雷
+	{
+		for(i=1;i<=x;i++)
+		{
+			for(j=1;j<=y;j++)
+			{
+				if(rand()%100<=geshugl&&zuobiao[i][j]==0)
+					zuobiao[i][j]=-1,n--;
+				if(n==0)
+					break;
+			}
+			if(n==0)
+				break;
+		}
+		
+	}
+
+
+			for(i=1;i<=x;i++)
+		{
+			for(j=1;j<=y;j++)
+			{   
+			 	if(zuobiao[i][j]==0)                       //显示周围九宫格雷的个数
+			 	{
+			 		if(zuobiao[i-1][j-1]==-1)  zuobiao[i][j]++;   
+			 		if(zuobiao[i-1][j]==-1)    zuobiao[i][j]++;
+			 		if(zuobiao[i-1][j+1]==-1)  zuobiao[i][j]++;
+			 		if(zuobiao[i][j-1]==-1)    zuobiao[i][j]++;
+			 		if(zuobiao[i][j+1]==-1)    zuobiao[i][j]++;
+			 		if(zuobiao[i+1][j-1]==-1)  zuobiao[i][j]++;
+			 		if(zuobiao[i+1][j]==-1)    zuobiao[i][j]++;
+			 		if(zuobiao[i+1][j+1]==-1)  zuobiao[i][j]++;
+			 		
+				 }
+			} 
+			
+		}
+		for(i=1;i<=x;i++)
+		{
+			printf("\n");
+			for(j=1;j<=y;j++)
+			{   
+				if(zuobiao[i][j]<0)
+				printf("%d",zuobiao[i][j]);
+				else printf("%d ",zuobiao[i][j]);
+			}
+		}
